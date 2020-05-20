@@ -1912,3 +1912,45 @@ Processing by CoinsController#index as HTML
 Completed 200 OK in 354ms (Views: 93.4ms | ActiveRecord: 42.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2020-05-19 15:31:28 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/airton/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_menu.html.erb (0.9ms)
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 237ms (Views: 229.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/coins" for 127.0.0.1 at 2020-05-19 22:50:11 -0300
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[35m (67.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "coins"[0m
+  ↳ app/views/coins/index.html.erb:3
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  ↳ app/views/coins/index.html.erb:16
+  Rendered coins/index.html.erb within layouts/application (939.8ms)
+Completed 500 Internal Server Error in 946ms (ActiveRecord: 68.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `links' for #<#<Class:0x00007f64d19acc38>:0x00007f64c4053248>
+Did you mean?  link_to):
+    18:         <td><%= coin.description %></td>
+    19:         <td><%= coin.acronym %></td>
+    20:         <td><%= image_tag coin.url_image, width: 25, height: 25 %></td>
+    21:         <td><%= link_to t(links.show), coin %></td>
+    22:         <td><%= link_to t(links.edit), edit_coin_path(coin) %></td>
+    23:         <td><%= link_to t(links.delete), coin, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+    24:       </tr>
+  
+app/views/coins/index.html.erb:21:in `block in _app_views_coins_index_html_erb___2826759812460535868_15940'
+app/views/coins/index.html.erb:16:in `_app_views_coins_index_html_erb___2826759812460535868_15940'
+Started GET "/" for 127.0.0.1 at 2020-05-20 19:36:33 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_menu.html.erb (0.9ms)
+  Rendered welcome/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
